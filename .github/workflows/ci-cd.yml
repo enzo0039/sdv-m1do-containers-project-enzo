@@ -25,12 +25,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}  # Nom d'utilisateur Docker Hub
           password: ${{ secrets.DOCKER_PASSWORD }}  # Mot de passe Docker Hub
 
-      - name: Build and push Docker images
+      - name: Build and push Docker images for API
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./sdv-api  # Chemin vers le Dockerfile de l'API
+          file: Dockerfile     # Nom du Dockerfile
           push: true
-          tags: enzowindd/sdv-m1do-containers-project-enzo:latest
+          tags: enzowindd/sdv-m1do-containers-project-enzo-api:latest
+
+      - name: Build and push Docker images for Frontend
+        uses: docker/build-push-action@v2
+        with:
+          context: ./sdv-web  # Chemin vers le Dockerfile du Frontend
+          file: Dockerfile     # Nom du Dockerfile
+          push: true
+          tags: enzowindd/sdv-m1do-containers-project-enzo-frontend:latest
 
       - name: Notify success
-        run: echo "Docker image built and pushed successfully!"
+        run: echo "Docker images built and pushed successfully!"
