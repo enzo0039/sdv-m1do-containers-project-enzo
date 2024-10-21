@@ -41,18 +41,3 @@ docker-compose down
 Déploiement CI/CD
 Ce projet est configuré avec GitHub Actions pour automatiser le processus de construction et de déploiement. Chaque fois que vous poussez des modifications sur la branche main, une nouvelle image Docker est construite et poussée vers Docker Hub.
 
-Contribuer
-Si vous souhaitez contribuer au projet, n'hésitez pas à soumettre une pull request ou à ouvrir un problème pour toute suggestion ou question.
-
-
-### Instructions pour mettre à jour le fichier README.md
-
-1. Ouvrez le fichier `README.md` dans votre éditeur de texte ou IDE.
-2. Remplacez ou ajoutez le contenu ci-dessus.
-3. Enregistrez les modifications.
-4. Ajoutez les modifications à Git, puis commettez et poussez les modifications vers votre dépôt :
-
-```bash
-git add README.md
-git commit -m "Mettre à jour le README.md avec les instructions de lancement"
-git push origin main
