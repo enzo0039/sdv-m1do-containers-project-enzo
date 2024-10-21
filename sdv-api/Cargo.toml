@@ -3,6 +3,11 @@ name = "sdv-api"
 version = "1.0.0"
 edition = "2021"
 
+# Ajoute cette section pour indiquer le binaire principal
+[[bin]]
+name = "sdv-api"  # Cela devrait correspondre au nom du package
+path = "src/main.rs"  # Chemin vers le fichier main.rs
+
 [dependencies]
 rand = "0.8.5"
 rocket = { version = "0.5.1", features = ["json"] }

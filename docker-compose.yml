@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./sdv-api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./sdv-api:/app  # Monte le code source pour le rechargement automatique
+    command: ["cargo", "run"]  # Exécute l'application Rust
+
+  frontend:
+    build:
+      context: ./sdv-web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sdv-web:/app  # Monte le code source pour le rechargement automatique
+    command: ["npm", "run", "dev"]  # Lancer en mode développement
+    environment:  # Ajoutez cette section
+      - API_URL=http://api:8000  # Définissez l'URL de l'API ici
